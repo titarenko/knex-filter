@@ -40,6 +40,23 @@ describe('knex-filter', function () {
 				.sql
 				.should.eql('select * from "mytab" where ((("a" is null) or ("b" = ?)))');
 		});
+		it('should build query with "and" and "or', function () {
+			knex('mytab')
+				.where(filter({
+					a: 'b',
+					'c >': 12,
+					'd in': [1, 2, 3],
+					e: null,
+					not: { f: null },
+					or: {
+						k: 1,
+						'm like': '%Bob%'
+					}
+				}))
+				.toSQL()
+				.sql
+				.should.eql('select * from "mytab" where ("a" = ? and "c" > ? and "d" in (?, ?, ?) and "e" is null and not ("f" is null) and (("k" = ?) or ("m" like ?)))');
+		});
 	});
 
 });
