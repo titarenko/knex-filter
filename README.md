@@ -2,6 +2,10 @@
 
 Declarative filtering for `knex.js`.
 
+[![Build Status](https://secure.travis-ci.org/titarenko/knex-filter.png?branch=master)](https://travis-ci.org/titarenko/knex-filter) [![Coverage Status](https://coveralls.io/repos/titarenko/knex-filter/badge.png)](https://coveralls.io/r/titarenko/knex-filter)
+
+[![NPM](https://nodei.co/npm/knex-filter.png?downloads=true&stars=true)](https://nodei.co/npm/knex-filter/)
+
 ## Installation
 
 ```bash
