@@ -1,0 +1,38 @@
+{
+  "name": "knex-filter",
+  "version": "0.1.0",
+  "description": "Declarative filtering for knex.js.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "lodash": "^3.10.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.3",
+    "istanbul": "^0.3.17",
+    "knex": "^0.8.6",
+    "mocha": "^2.2.5",
+    "should": "^7.0.2"
+  },
+  "scripts": {
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- tests && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titarenko/knex-filter.git"
+  },
+  "keywords": [
+    "knex",
+    "filter",
+    "declarative",
+    "query"
+  ],
+  "author": "Constantin Titarenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/titarenko/knex-filter/issues"
+  },
+  "homepage": "https://github.com/titarenko/knex-filter#readme"
+}
