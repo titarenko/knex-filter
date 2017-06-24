@@ -26,6 +26,13 @@ describe('knex-filter', function () {
 				.sql
 				.should.eql('select * from "mytab" where (not ("a" is null))');
 		});
+		it('should build query with "!"', function () {
+			knex('mytab')
+				.where(filter({ '!': { a: null } }))
+				.toSQL()
+				.sql
+				.should.eql('select * from "mytab" where (not ("a" is null))');
+		});
 		it('should build query with "and"', function () {
 			knex('mytab')
 				.where(filter({ and: { a: null, b: 12 } }))
