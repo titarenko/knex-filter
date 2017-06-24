@@ -16,7 +16,7 @@ function registerHandler (op, handler, overwrite) {
 	handlers[op] = handler;
 }
 
-var fieldlessCommands = ['and', 'or', 'not'];
+var fieldlessCommands = ['and', 'or', 'not', '!'];
 
 var handlers = {
 	'=': eqHandler,
