@@ -25,7 +25,7 @@ var handlers = {
 	'>=': _.partial(comparisonHandler, '>='),
 	'<=': _.partial(comparisonHandler, '<='),
 	'in': _.partial(arrayArgHandler, 'whereIn'),
-	'@>': _.partial(arrayArgHandler, '@>'),
+	'@>': _.partial(arrayFnHandler, '@>'),
 	'between': _.partial(arrayArgHandler, 'whereBetween'),
 	'like': _.partial(comparisonHandler, 'like'),
 	'ilike': _.partial(comparisonHandler, 'ilike'),
@@ -52,6 +52,13 @@ function arrayArgHandler (op, field, arg) {
 		return;
 	}
 	this[op](field, arg);
+}
+
+function arrayFnHandler (op, field, arg) {
+	if (!_.isArray(arg) || _.isEmpty(arg)) {
+		return;
+	}
+	this.where(field, op, arg);
 }
 
 function notHandler (field, arg) {
