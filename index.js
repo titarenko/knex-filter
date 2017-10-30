@@ -25,6 +25,7 @@ var handlers = {
 	'>=': _.partial(comparisonHandler, '>='),
 	'<=': _.partial(comparisonHandler, '<='),
 	'in': _.partial(arrayArgHandler, 'whereIn'),
+	'@>': _.partial(arrayArgHandler, '@>'),
 	'between': _.partial(arrayArgHandler, 'whereBetween'),
 	'like': _.partial(comparisonHandler, 'like'),
 	'ilike': _.partial(comparisonHandler, 'ilike'),
