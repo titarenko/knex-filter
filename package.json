@@ -13,13 +13,14 @@
     "coveralls": "^3.0.3",
     "istanbul": "^0.4.5",
     "knex": "^0.16.5",
-    "mocha": "^6.1.4",
-    "should": "^7.0.2"
+    "tape": "^4.10.2"
   },
   "scripts": {
-    "test-on-travis": "istanbul cover node_modules/mocha/bin/_mocha -- tests && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha -- tests",
-    "release": "npm test && npm version patch && npm publish && git push && git push --tags"
+    "test-on-travis": "istanbul cover tests/index.js && cat ./coverage/lcov.info | coveralls",
+    "test": "istanbul cover tests/index.js",
+    "release-fix": "npm test && npm version patch && npm publish && git push && git push --tags",
+    "release-feature": "npm test && npm version minor && npm publish && git push && git push --tags",
+    "release-breaking": "npm test && npm version major && npm publish && git push && git push --tags"
   },
   "repository": {
     "type": "git",
