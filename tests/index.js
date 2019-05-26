@@ -47,7 +47,7 @@ describe('knex-filter', function () {
 				.sql
 				.should.eql('select * from "mytab" where ((("a" is null) or ("b" = ?)))');
 		});
-		it('should build query with "and" and "or', function () {
+		it('should build query with "and" and "or"', function () {
 			knex('mytab')
 				.where(filter({
 					a: 'b',

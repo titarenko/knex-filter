@@ -81,15 +81,16 @@ function logicalHandler (op, field, arg) {
 		return walkLevel.call(this, arg);
 	}
 	this.where(function () {
+		var self = this
 		_.each(arg, function (arg, commandText) {
-			this[op](filter(_.zipObject([commandText], [arg])));
-		}, this);
+			self[op](filter(_.zipObject([commandText], [arg])));
+		});
 	});
 }
 
 function parseCommand (text) {
 	var tokens = text.split(' ');
-	if (tokens.length === 1 && _.contains(fieldlessCommands, tokens[0])) {
+	if (tokens.length === 1 && _.includes(fieldlessCommands, tokens[0])) {
 		return {
 			field: null,
 			command: tokens[0]
